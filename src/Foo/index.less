@@ -1,6 +1,7 @@
 .UploadImage {
   :global {
     * {
+      // 设置了这一句，导致 setFileList 的时候，引发渲染 bug
       animation-duration: 0s !important;
     }
   }

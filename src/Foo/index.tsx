@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Upload } from 'antd';
 import styles from './index.less';
+import 'antd/dist/antd.less';
 
 export interface IUploadImageProps {
   value?: string;
@@ -15,6 +16,8 @@ const UploadImage: React.FC<IUploadImageProps> = (props: IUploadImageProps) => {
     },
   ]);
   React.useEffect(() => {
+    // 封装跟直接使用的唯一区别就是会主动 set fileList
+    // 设置了这一句，导致 setFileList 的时候，引发渲染 bug
     if (value) {
       setFileList([{ url: value }]);
     } else {
