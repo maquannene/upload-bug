@@ -11,16 +11,22 @@ export interface IUploadImageProps {
 const UploadImage: React.FC<IUploadImageProps> = (props: IUploadImageProps) => {
   const { value, onChange } = props;
   const [fileList, setFileList] = React.useState<any>([
-    {
-      url: value,
-    },
+    value
+      ? [
+          {
+            url: value,
+          },
+        ]
+      : [],
   ]);
   React.useEffect(() => {
     // 封装跟直接使用的唯一区别就是会主动 set fileList
     // 设置了这一句，导致 setFileList 的时候，引发渲染 bug
     if (value) {
+      debugger;
       setFileList([{ url: value }]);
     } else {
+      debugger;
       setFileList([]);
     }
   }, [value]);

@@ -10,7 +10,12 @@ import { Foo } from 'upload-bug';
 export default () => {
   return (
     <div>
-      <Foo />
+      <Foo
+        value={
+          'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+        }
+      />
+      <p>点击上面图片的删除按钮，重现 bug</p>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         listType="picture-card"
